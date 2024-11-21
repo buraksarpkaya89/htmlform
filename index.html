@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./styles/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div>
+    <h1>Kullanıcı Formu</h1>
+    <form id="exampleform">
+        <div class="border">
+            <div>
+                <label >İsim :</label>
+                <input id="firstname" type="text" name="firstname" placeholder="İsminizi yazınız" required>
+            </div>
+            <div>
+                <label for="lastname">Soyadı :</label>
+                <input id="lastname" type="text" name="lastname" placeholder="Soyadınızı yazınız" required>
+            </div>
+            <div>
+                <label for="age">Yaş :</label>
+                <input id="age" type="number" name="age" value="0" step="2" max="10" placeholder="Yaşınızı yazınız" required autofocus>
+            </div>
+            <div>
+                <label for="email">Email :</label>
+                <input id="email" type="email" name="email" placeholder="Email giriniz" required autofocus>
+            </div>
+            <div>
+                <textarea name="textarea" rows="5" placeholder="Açıklamanızı giriniz"></textarea>
+            </div>
+            <div>
+                <label for="bodysize">Bedeninizi seçiniz</label>
+                <select id="bodysize" name="size">
+                    <option value="xs">Extra Small</option>
+                    <option value="s">Small</option>
+                    <option value="m" selected>Medium</option>
+                    <option value="large">Large</option>
+                </select>
+            </div>
+            <div class="radio">
+                <span>Cinsiyet seçiniz:</span>
+                <label>
+                    <input type="radio" name="gender" value="erkek" required>
+                    Erkek
+                </label>
+                <label>
+                    <input type="radio" name="gender" value="kadın" required>
+                    Kadın
+                </label>
+            </div>
+
+            <div>
+                <label>
+                    <input type="checkbox" name="onay" required>
+                    Okudum, Anladım.
+                </label>
+            </div>
+
+            <button type="submit">Gönder</button>
+
+        </div>
+    </form>
+
+    <script>
+        const form = document.getElementById("exampleform")
+
+
+        form.addEventListener("submit", function(event){
+
+            event.preventDefault()
+            const formData = new FormData(form)
+
+            const data ={}
+
+            formData.forEach((value,key) => {
+                data[key] = value
+            });
+            console.log(data);
+        })
+    </script>
+</body>
+
+</html>
